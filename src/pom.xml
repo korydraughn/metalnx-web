@@ -11,7 +11,7 @@
 	<properties>
 
 		<!-- Jargon -->
-		<jargon.version>4.3.4.0-RELEASE</jargon.version>
+		<jargon.version>4.3.5.0-SNAPSHOT</jargon.version>
 
 		<!-- Spring -->
 		<spring.version>4.3.18.RELEASE</spring.version>
@@ -27,8 +27,8 @@
 		<jstl.version>1.2</jstl.version>
 
 		<!-- Logging -->
-		<slf4j.version>1.7.7</slf4j.version>
-		<logback.version>1.1.2</logback.version>
+		<slf4j.version>2.0.0-alpha5</slf4j.version>
+                    <!-- <logback.version>1.1.2</logback.version> -->
 
 		<!-- Selenium -->
 		<selenium.version>2.45.0</selenium.version>
@@ -121,6 +121,34 @@
 				<groupId>org.irods.jargon</groupId>
 				<artifactId>jargon-core</artifactId>
 				<version>${jargon.version}</version>
+                                <exclusions>
+                                    <exclusion>
+                                        <groupId>log4j</groupId>
+                                        <artifactId>log4j</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>org.slf4j</groupId>
+                                        <artifactId>slf4j-api</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>org.slf4j</groupId>
+                                        <artifactId>slf4j-log4j12</artifactId>
+                                    </exclusion>
+                                    <!--
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-core</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-databind</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-annotations</artifactId>
+                                    </exclusion>
+                                    -->
+                                </exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.irods.jargon</groupId>
@@ -156,6 +184,34 @@
 				<groupId>org.irods.jargon</groupId>
 				<artifactId>jargon-extensions-if</artifactId>
 				<version>${jargon.version}</version>
+                                <exclusions>
+                                    <exclusion>
+                                        <groupId>log4j</groupId>
+                                        <artifactId>log4j</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>org.slf4j</groupId>
+                                        <artifactId>slf4j-api</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>org.slf4j</groupId>
+                                        <artifactId>slf4j-log4j12</artifactId>
+                                    </exclusion>
+                                    <!--
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-core</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-databind</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-annotations</artifactId>
+                                    </exclusion>
+                                    -->
+                                </exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.irods.jargon</groupId>
@@ -171,6 +227,36 @@
 				<groupId>org.irods</groupId>
 				<artifactId>irodsext-jwt-service</artifactId>
 				<version>${jargon.version}</version>
+                                <exclusions>
+                                    <!--
+                                    <exclusion>
+                                        <groupId>log4j</groupId>
+                                        <artifactId>log4j</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>org.slf4j</groupId>
+                                        <artifactId>slf4j-api</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>org.slf4j</groupId>
+                                        <artifactId>slf4j-log4j12</artifactId>
+                                    </exclusion>
+                                    -->
+                                    <!--
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-core</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-databind</artifactId>
+                                    </exclusion>
+                                    <exclusion>
+                                        <groupId>com.fasterxml.jackson.core</groupId>
+                                        <artifactId>jackson-annotations</artifactId>
+                                    </exclusion>
+                                    -->
+                                </exclusions>
 			</dependency>
 			<!-- Spring libraries -->
 			<dependency>
@@ -252,28 +338,31 @@
 				<artifactId>logback-classic</artifactId>
 				<version>${logback.version}</version>
 			</dependency>-->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.16</version>
-				<scope>runtime</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-				<scope>runtime</scope>
-			</dependency>
+                        <dependency>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-api</artifactId>
+                            <version>2.0.0-alpha5</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.logging.log4j</groupId>
+                            <artifactId>log4j-api</artifactId>
+                            <version>2.17.1</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.logging.log4j</groupId>
+                            <artifactId>log4j-core</artifactId>
+                            <version>2.17.1</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.logging.log4j</groupId>
+                            <artifactId>log4j-1.2-api</artifactId>
+                            <version>2.17.1</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.logging.log4j</groupId>
+                            <artifactId>log4j-slf4j18-impl</artifactId>
+                            <version>2.17.1</version>
+                        </dependency>
 
 			<!-- Thymeleaf dependencies -->
 			<dependency>
@@ -411,10 +500,24 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+                <dependency>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-1.2-api</artifactId>
+                </dependency>
+                <dependency>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-slf4j18-impl</artifactId>
+                </dependency>
+                <!--
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -424,6 +527,7 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+                -->
 		<!-- https://mvnrepository.com/artifact/xml-apis/xml-apis -->
 		<dependency>
 			<groupId>xml-apis</groupId>
